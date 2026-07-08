@@ -1,0 +1,6 @@
+{
+  "name": "Queen Bee",
+  "description": "The ultimate Queen Bee tap-to-mine Telegram Bot game with an autumn theme where you gather honey, solve daily riddles, claim gold chest boxes, spin the lucky wheel, and recruit friends to grow your node hashrates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

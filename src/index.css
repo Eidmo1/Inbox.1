@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-cyber-green: #10B981;
+  --color-cyber-gold: #EA580C; /* Autumn warm orange */
+  --color-cyber-purple: #F59E0B; /* Autumn gold/amber */
+  --color-cyber-dark: #0F0906;  /* Deep warm espresso/charcoal */
+  --color-cyber-blue: #D97706;  /* Warm amber */
+
+  /* Autumn civilization palette variables */
+  --color-ancient-gold: #F59E0B;       /* Warm harvest gold */
+  --color-ancient-bronze: #7C2D12;     /* Autumn copper/terracotta */
+  --color-ancient-lapis: #271206;      /* Deep mahogany/chestnut */
+  --color-ancient-emerald: #451a03;    /* Warm acorn brown */
+  --color-ancient-turquoise: #CA8A04;  /* Rich honey yellow */
+  --color-ancient-sand: #FEF3C7;       /* Soft butterscotch/cream */
+  --color-ancient-obsidian: #0C0502;   /* Autumn dark forest ground */
+}
+
+@keyframes float-fade {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 1;
+  }
+  15% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120px) scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-float-fade {
+  animation: float-fade 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Futuristic slide and pulsing */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.4);
+  }
+}
+
+.shadow-glow {
+  animation: glow-pulse 3s infinite ease-in-out;
+}
+
+/* Shake animation for error state feedback */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shake 0.15s ease-in-out 2;
+}
+
+/* Custom scrollbar styling for cyberpunk overlays */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+html, body, #root {
+  background-color: #090D16;
+  font-family: var(--font-sans);
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: auto;
+}
+
+/* Battery Charging animations */
+@keyframes charge-flow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+
+@keyframes energy-beacon {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
+    border-color: rgba(16, 185, 129, 0.6);
+  }
+}
+
+@keyframes charging-pulse-light {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-charge-flow {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 40px 40px;
+  animation: charge-flow 1.2s linear infinite;
+}
+
+.animate-energy-beacon {
+  animation: energy-beacon 2s infinite ease-in-out;
+}
+
+.animate-charging-pulse-light {
+  animation: charging-pulse-light 1.5s infinite ease-in-out;
+}
+
+/* Beautiful slow float bob and rotation for the 3D skull */
+@keyframes skull-bob {
+  0%, 100% {
+    transform: translateY(0px) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2.5deg);
+  }
+}
+
+.animate-skull-bob {
+  animation: skull-bob 4.5s ease-in-out infinite;
+}
+
+/* Ancient & Mythological Fantasy styles */
+.ancient-mythic-bg {
+  background: radial-gradient(circle at 50% 20%, #2e1405 0%, #110501 75%, #050100 100%);
+  position: relative;
+}
+
+.ancient-mythic-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image: radial-gradient(#ea580c 1.2px, transparent 1.2px), radial-gradient(#eab308 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  pointer-events: none;
+}
+
+.ancient-rune-glow {
+  text-shadow: 0 0 10px rgba(223, 177, 91, 0.4), 0 0 2px rgba(223, 177, 91, 0.8);
+}
+
+.ancient-turquoise-glow {
+  text-shadow: 0 0 10px rgba(20, 184, 166, 0.5), 0 0 2px rgba(20, 184, 166, 0.8);
+}
+
+.ancient-tablet-card {
+  background: linear-gradient(135deg, rgba(14, 16, 21, 0.95) 0%, rgba(8, 9, 12, 0.98) 100%);
+  border: 1px solid rgba(223, 177, 91, 0.25);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.8), 
+    inset 0 1px 1px rgba(255, 255, 255, 0.05),
+    0 0 15px rgba(223, 177, 91, 0.04);
+  position: relative;
+}
+
+.ancient-tablet-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(223, 177, 91, 0.4), transparent);
+}
+
+.ancient-gilded-border {
+  border: 1px solid rgba(223, 177, 91, 0.35);
+  box-shadow: 0 0 8px rgba(223, 177, 91, 0.15);
+}
+
+.ancient-hieroglyph-btn {
+  background: linear-gradient(185deg, #1e1e1a 0%, #121210 100%);
+  border: 1px solid rgba(223, 177, 91, 0.4);
+  color: #dfb15b;
+  text-shadow: 0 0 4px rgba(223, 177, 91, 0.5);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ancient-hieroglyph-btn:hover {
+  background: linear-gradient(185deg, #2a2a24 0%, #181815 100%);
+  border-color: rgba(223, 177, 91, 0.7);
+  box-shadow: 
+    0 4px 14px rgba(223, 177, 91, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.ancient-hieroglyph-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.ancient-turquoise-btn {
+  background: linear-gradient(185deg, #0f2c2a 0%, #081615 100%);
+  border: 1px solid rgba(20, 184, 166, 0.4);
+  color: #2dd4bf;
+  text-shadow: 0 0 4px rgba(20, 184, 166, 0.5);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ancient-turquoise-btn:hover {
+  background: linear-gradient(185deg, #163d3a 0%, #0b1f1d 100%);
+  border-color: rgba(20, 184, 166, 0.7);
+  box-shadow: 
+    0 4px 14px rgba(20, 184, 166, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+
